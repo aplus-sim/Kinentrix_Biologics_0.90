@@ -1,0 +1,21 @@
+# Render Blueprint - KINENTRIX Biologics 0.90 (Streamlit)
+# Plan "1c-2g" = 1 CPU / 2 GB (named "standard" before Render's Aug 2026 plan rename).
+# The app needs about 515 MB, so the free / 512 MB plans run out of memory.
+services:
+  - type: web
+    name: kinentrix-biologics
+    runtime: python
+    plan: 1c-2g
+    buildCommand: pip install -r requirements.txt
+    startCommand: >-
+      streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+      --server.headless true --browser.gatherUsageStats false
+      --theme.base dark --theme.primaryColor "#38BDF8" --theme.backgroundColor "#0B1220"
+      --theme.secondaryBackgroundColor "#111C30" --theme.textColor "#E2E8F0"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.14.7"
+      - key: KINENTRIX_PASSWORD
+        sync: false
+      - key: KINENTRIX_DEMO_TOP5
+        value: "1"

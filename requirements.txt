@@ -1,0 +1,14 @@
+# KINENTRIX Biologics 0.90 - runtime only.
+# Versions are pinned: the model files were saved with these exact libraries and may
+# not load with other versions (sklearn / xgboost / catboost / lightgbm pickles).
+streamlit==1.63.0
+pandas==3.0.5
+numpy==2.5.3
+scipy==1.18.1
+plotly==7.0.0
+joblib==1.6.0
+matplotlib==3.11.1
+scikit-learn==1.9.0
+xgboost==3.4.1
+catboost==1.2.10
+lightgbm==4.7.0
